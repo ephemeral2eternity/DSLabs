@@ -1,0 +1,84 @@
+configuration :
+- name : a
+  ip   : 128.2.131.12
+  port : 13112
+  memberOf : group-a
+  
+- name : b
+  ip   : 128.2.131.13
+  port : 13113
+  memberOf : group-b
+  
+- name : c
+  ip   : 128.2.131.14
+  port : 13114
+  memberOf : group-c
+
+- name : d
+  ip   : 128.2.131.15
+  port : 13115
+  memberOf : group-d
+  
+- name : e
+  ip   : 128.2.131.16
+  port : 13116
+  memberOf : group-e
+    
+- name : f
+  ip   : 128.2.131.17
+  port : 13117
+  memberOf : group-f
+  
+- name : g
+  ip   : 128.2.131.18
+  port : 13118
+  memberOf : group-g
+
+groups:
+- name : group-a
+  members : 
+    - a
+    - b
+    - c
+    
+- name : group-b
+  members :
+    - b
+    - d
+    - f
+
+- name : group-c
+  members :
+    - c
+    - e
+    - f
+    
+- name : group-d
+  members :
+    - a
+    - d
+    - e
+
+- name : group-e
+  members :
+    - b
+    - e
+    - g
+    
+- name : group-f
+  members :
+    - a
+    - f
+    - g
+    
+- name : group-g
+  members :
+    - c
+    - d
+    - g
+
+receiveRules:
+- action : delay
+  type   : request
+  src    : b
+  dest    : a

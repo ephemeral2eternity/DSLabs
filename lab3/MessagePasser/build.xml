@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="MessagePasser">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="7"/>
+    <property name="source" value="7"/>
+    <path id="MessagePasser.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="snakeyaml-1.11.jar"/>
+    </path>
+    <target name="init">
+    	<mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="bin">
+                <include name="MessagePasser/"/>
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete file="${ant.project.name}.jar"/>
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-project" name="build"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="bin"/>
+            <include name="MessagePasser/"/>
+            <classpath refid="MessagePasser.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="MessagePasser.classpath"/>
+        </javac>
+    </target>
+    <target name="MessagePasser">
+        <java classname="MessagePasser.MessagePasser" failonerror="true" fork="yes">
+            <classpath refid="MessagePasser.classpath"/>
+        </java>
+    </target>
+    <target depends="build" name="jar" description="JARs the Task">
+    	<jar destfile="${ant.project.name}.jar" includes="**/*.class" basedir="bin">
+    	    <manifest> 
+    	    	<attribute name="Main-Class" value="MessagePasser.MutexMain"/>
+    	    	<attribute name="Class-Path" value="snakeyaml-1.11.jar"/>
+    	    </manifest>
+    	</jar>
+    </target>
+</project>
