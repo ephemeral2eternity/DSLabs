@@ -1,0 +1,20 @@
+# Tasks to be done. 
+# Lab1 for S14-18842, Distrubuted Systems
+# Team Members: Chen Wang <chenw@andrew.cmu.edu>
+#              Siyang Yu <siyangy@andrew.cmu.edu>
+
+1. Use object Factory design pattern to design subclass of Logical Clock Service.
+2. Use object Factory design pattern to design subclass of Vector Clock Service.
+   2.1 Determine the VectorClock size based on the number of names in config file.
+3. Develop a "TimeStampedMessage" subclass.
+   3.1 Change the Message class to TimeStampedMessage class to include a field of a "TimeStamp" class.
+4. Change application code to enable timestamp.
+   4.1 All message transmission and reception can be automatically timestamped. Add a method for timestamp, and add it to send and receive method.
+5. Centralized Logging facility, "Logger".
+   5.1 Inspect Module of timestamps which is on logging facility.
+   5.2 Module of identify concurrent messages.
+   5.3 Question: does "Logging" count as an event?
+   5.4 Single time logger's output: which means we need to invoke logger at some time point.
+
+
+Most Important: we need to design a testing scenario with delay, drop, and duplicate messages first.
