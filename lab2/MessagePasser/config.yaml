@@ -1,0 +1,32 @@
+configuration :
+- name : ece002
+  ip   : 128.2.131.12
+  port : 13112
+  
+- name : ece003
+  ip   : 128.2.131.13
+  port : 13113
+  
+- name : ece004
+  ip   : 128.2.131.14
+  port : 13114
+
+- name : Logger
+  ip   : 128.2.131.15
+  port : 13115
+  
+sendRules :
+- action : drop
+  src    : ece003
+  dest   : ece002
+  kind   : Ack
+  seqNum : 4
+- action : delay
+  kind : Lookup
+- action : delay
+  kind : rr
+
+receiveRules:
+- action : duplicate
+  src    : ece002
+  seqNum : 3

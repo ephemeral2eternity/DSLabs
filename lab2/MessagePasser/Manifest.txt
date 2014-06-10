@@ -1,0 +1,2 @@
+Main-Class: MessagePasser.MessagePasser
+Class-Path: snakeyaml-1.11.jar

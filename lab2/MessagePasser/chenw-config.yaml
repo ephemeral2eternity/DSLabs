@@ -1,0 +1,34 @@
+configuration :
+- name : local1
+  ip   : 127.0.0.1
+  port : 12347
+  
+- name : local2
+  ip   : 192.168.1.114
+  port : 12348
+  
+- name : local3
+  ip   : 192.168.1.114
+  port : 12349
+
+- name : Logger
+  ip   : 192.168.1.114
+  port : 12346
+  
+sendRules :
+- action : drop
+  src    : chenw
+  dest   : ece002
+  kind   : Ack
+  seqNum : 4
+- action : delay
+  kind : Lookup
+- action : duplicate
+  kind : rr
+
+receiveRules:
+- action : duplicate
+  src    : ece004
+  seqNum : 3
+- action : duplicate
+  kind : rr
