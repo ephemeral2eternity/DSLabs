@@ -1,0 +1,54 @@
+###################################################################
+#################### Lab 0 for 18-842 #############################
+# ----------------------- Team 69 ------------------------------- #
+# @author: Chen Wang <chenw@andrew.cmu.edu>                      ##
+# @author: Vignesh Gadiyar <vignesh@andrew.cmu.edu>              ##
+###################################################################
+
+# ------------------ Project Description -------------------------#
+# Develop an abstraction of the interprocess communication mecha- #
+# -nism, which allow for fine grained testing and control of mes- #
+# -sage passing between well-defined processes in a distributed   #
+# system.							  #
+###################################################################
+
+# ---------------------- Code Modules ----------------------------#
+# ./src/MessagePasser/MessagePasser.java                          ##
+# ./src/MessagePasser/MessageRules.java                           ##
+# ./src/MessagePasser/Message.java                                ##
+# ./src/MessagePasser/MessageUser.java                            ##
+# ./src/MessagePasser/KeyWaker.java                               ##
+# ./src/MessagePasser/MsgConnector.java                           ##
+# ./src/MessagePasser/MessagerConstant.java                       ##
+####################################################################
+
+# ------------------ Where is the code ----------------------------#
+# It's on ECE clusters in ~chenw/842labs/lab0/MessagePasser/       #
+# You can log into the repository by ssh:                          #
+# ssh <your_andrew_id>@ece00X.ece.cmu.edu                          #
+# And then clone the code to your own folder                       #
+# git clone ~/chenw/842labs/lab0/MessagePasser                     #
+# OR you can directly clone the folder to your local laptop by:    #
+# git clone                                                        #
+# ssh://<andrew_id>@ece00X.ece.cmu.edu/                            #
+# ~chenw/842labs/lab0/MessagePasser                                #
+# (You have the access if you have access to ECE clusters.)
+####################################################################
+
+# ------------------ How do we compile ----------------------------#
+# There is an ant build file called build.xml located in the ./    #
+# To clean the binaries, please type in command line:              #
+# ant clean                                                        #
+# To comile: ant build                                             #
+# To generate jar: ant jar                                         #
+####################################################################
+
+# ------------------------ References -----------------------------#
+# We specially want to mention we are using following libraries to #
+# parse the configuration files that is in *.yaml format.          #
+# snakeyaml-1.13.jar                                               #
+# The code is open source and can be found below in details:       #
+# http://code.google.com/p/snakeyaml/                              #
+####################################################################
+
+

@@ -1,0 +1,30 @@
+configuration :
+- name : chenw
+  ip   : 194.117.25.73
+  port : 15001
+
+- name : ece002
+  ip   : 128.2.131.12
+  port : 15002	          
+
+- name : ece003
+  ip   : 128.2.131.13
+  port : 15003
+
+- name : ece004
+  ip   : 128.2.131.14
+  port : 15004
+  
+sendRules :
+- action : drop
+  src    : chenw
+  dest   : ece002
+  kind   : Ack
+  seqNum : 4
+- action : delay
+  kind : Lookup
+
+receiveRules:
+- action : duplicate
+  src    : ece004
+  seqNum : 3
